@@ -63,14 +63,24 @@ Therefore, when writing or updating these tests, it's crucial to ensure that the
 In other words, if you're writing a test to update or delete a song that you've just inserted into the database for testing purposes, you need to know the song_id that was assigned to that song and use it in your test. If the song_id in the test doesn't match any song_id in the database, the test will fail because it can't find the song it's supposed to update or delete.
 
 ```
-'id' => '53',
-'username' => 'test_admin',
-'song_artist' => 'test_admin',
-'song_name' => 'admin_song',
-'song_rating' => '4',
+public function testUpdateSong(): void
+{
+    ...
+    'id' => '53',
+    'username' => 'test_admin',
+    'song_artist' => 'test_admin',
+    'song_name' => 'admin_song',
+    'song_rating' => '4',
+    ...
+}
 ```
 
 ```
-'id' => '53',
-'username' => 'test_admin',
+public function testDeleteSong(): void
+{
+    ...
+    'id' => '53',
+    'username' => 'test_admin',
+    ...
+}
 ```
