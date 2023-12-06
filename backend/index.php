@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__ . '/inc/bootstrap.php';
 // Allow CORS
-// In this case, we allow only localhost:3000 to access our API, 
-// when you deploy your frontend, you will need to change this to your frontend server port.
-header('Access-Control-Allow-Origin: http://localhost:3000');
+// In this case, we allow all origins, so when you implement your project,
+// you will not be blocked by CORS.
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET');
 header('Access-Control-Allow-Headers: Content-Type');
 
