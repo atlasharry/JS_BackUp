@@ -8,6 +8,10 @@ In addition to the back up, we also have codes related to Unit Testing and Conti
 Homework 5
 
 
+## Python
+```pip install pytest```
+
+
 ## Backend
 ### Environment Config
 ### Hard code id; username; password
