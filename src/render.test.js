@@ -14,7 +14,7 @@ import "@testing-library/jest-dom";
 import fetchMock from "jest-fetch-mock";
 import { act } from "react-dom/test-utils";
 
-// Rendering test for the register page
+// Rendering test for the login page
 test("Register Login", () => {
   render(
     <BrowserRouter>

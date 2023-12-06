@@ -99,9 +99,18 @@ before running the test, please make sure you have node and npm installed.
 In your command line, enter the following command to build the environment and then run the test:
 
 ```bash
+cd .. # if you're still in the backend directory
 npm ci
-npm test
+npm test # if the test doesn't run please press `a` to manually run all the tests
 ```
+
+### The tests
+
+- The rendering test is in `render.test.js`
+- The Link test is in `link.test.js`
+- The input test is in `searchInput.test.js` & `incorrectValue.test.js`
+- The incorrect value test is in `incorrectValue.test.js`
+- The search functionality test is in `searchInput.test.js` (new functionality)
 
 ## Generative AI
 

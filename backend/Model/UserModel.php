@@ -86,8 +86,6 @@ class UserModel
     $query->close();
   }
 
-
-
   public function updateInfo($song_id, $artist, $song_name, $song_rating)
   {
     $query = $this->db->getConnection()->prepare("UPDATE ratings SET artist = ?, song = ?, rating = ? WHERE id = ?");
@@ -136,7 +134,7 @@ class UserModel
 
   public function createSong($song_name, $user_name, $song_artist, $song_rating)
   {
-    $query = $this->db->getConnection()->prepare("INSERT INTO ratings (`username`, `artist`, `song`, `rating`) VALUES (?, ?, ?, ?, ?)");
+    $query = $this->db->getConnection()->prepare("INSERT INTO ratings (`username`, `artist`, `song`, `rating`) VALUES (?, ?, ?, ?)");
     $query->bind_param('sssi', $user_name, $song_artist, $song_name, $song_rating);
     $query->execute();
     $query->close();

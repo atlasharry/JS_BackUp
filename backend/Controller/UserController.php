@@ -20,14 +20,14 @@ class UserController extends BaseController
     $userModel = new UserModel($db);
 
     if ($userModel->verifyUserCredentials($username, $password)) {
-      $this->jsonResponse(['success' => true, 'message' => 'Login successful'], 200);
+      $this->jsonResponse(['success' => true, 'message' => 'Login successful'], 201);
     } else {
       $this->jsonResponse(['success' => false, 'message' => 'wrong username or password'], 401);
     }
 
     $db->closeConnection();
   }
-
+  
   public function register()
   {
     $input = file_get_contents('php://input');

@@ -4,6 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 import Login from "./login";
 
+// This files is testing the link functionality
+
 // Define the test
 test("clicking on the Register link navigates to the Register page", () => {
   // Render the Login component within a BrowserRouter

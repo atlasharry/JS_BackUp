@@ -1,3 +1,4 @@
+// This file is testing the search functionality and input functionality
 import React from "react";
 import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
