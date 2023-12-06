@@ -7,6 +7,10 @@
 In addition to the back up, we also have codes related to Unit Testing and Continuous Integration(Python pytest, Jest, PHPUnit, GitHub Actions, Generative AI) for COMP 333: Software Engineering 2023
 Homework 5
 
+## Where to put the repo
+
+Make sure that you've cloned the repository to the folder htdocs in XAMPP. Otherwise, the php test might not run.
+
 ## Python test
 
 ### Problem 1 (unit test without pytest)
