@@ -48,8 +48,7 @@ cd backend
 
 ### Hard coded id (song_id), username, password
 
-For testRegister, testLogin, testFailLogin:
-the unsername and password are hard coded, make sure such user doesn't exist in the database before the test.
+For the testRegister, testLogin, and testFailLogin tests, the username and password are pre-defined in the test code. To ensure these tests run correctly, verify that the user defined by these credentials does not already exist in the database prior to running the tests.
 
 ```
 'username' => 'test_admin',
