@@ -6,3 +6,8 @@
 
 In addition to the back up, we also have codes related to Unit Testing and Continuous Integration(Python pytest, Jest, PHPUnit, GitHub Actions, Generative AI) for COMP 333: Software Engineering 2023
 Homework 5
+
+
+## Backend
+### Environment Config
+### Hard code id; username; password
