@@ -7,6 +7,10 @@
 In addition to the back up, we also have codes related to Unit Testing and Continuous Integration(Python pytest, Jest, PHPUnit, GitHub Actions, Generative AI) for COMP 333: Software Engineering 2023
 Homework 5
 
+## Where to put the repo
+
+Make sure that you've cloned the repository to the folder htdocs in XAMPP. Otherwise, the php test might not run.
+
 ## Python test
 
 ### Problem 1 (unit test without pytest)
@@ -48,8 +52,7 @@ cd backend
 
 ### Hard coded id (song_id), username, password
 
-For testRegister, testLogin, testFailLogin:
-the unsername and password are hard coded, make sure such user doesn't exist in the database before the test.
+For the testRegister, testLogin, and testFailLogin tests, the username and password are pre-defined in the test code. To ensure these tests run correctly, verify that the user defined by these credentials does not already exist in the database prior to running the tests.
 
 ```
 'username' => 'test_admin',
@@ -63,16 +66,26 @@ Therefore, when writing or updating these tests, it's crucial to ensure that the
 In other words, if you're writing a test to update or delete a song that you've just inserted into the database for testing purposes, you need to know the song_id that was assigned to that song and use it in your test. If the song_id in the test doesn't match any song_id in the database, the test will fail because it can't find the song it's supposed to update or delete.
 
 ```
-'id' => '53',
-'username' => 'test_admin',
-'song_artist' => 'test_admin',
-'song_name' => 'admin_song',
-'song_rating' => '4',
+public function testUpdateSong(): void
+{
+    ...
+    'id' => '53',
+    'username' => 'test_admin',
+    'song_artist' => 'test_admin',
+    'song_name' => 'admin_song',
+    'song_rating' => '4',
+    ...
+}
 ```
 
 ```
-'id' => '53',
-'username' => 'test_admin',
+public function testDeleteSong(): void
+{
+    ...
+    'id' => '53',
+    'username' => 'test_admin',
+    ...
+}
 ```
 
 ## Frontend Test
