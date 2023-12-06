@@ -1,17 +1,10 @@
 <?php
-/**
- * UserModel class that interacts with the database to handle 
- * user and song related functionalities.
- */
+
 class UserModel
 {
 
   private $db;
 
-   /**
-
-   * Constructor to initialize the database instance.
-   */
   public function __construct($database)
   {
     $this->db = $database;
@@ -20,7 +13,6 @@ class UserModel
   // Method to verify the user credentials
   public function verifyUserCredentials($username, $password)
   {
-    // Check the password associated with the username
     $query = $this->db->getConnection()->prepare("SELECT password FROM username WHERE username = ?");
     $query->bind_param('s', $username);
     $query->execute();
@@ -28,7 +20,7 @@ class UserModel
     $result = $query->get_result();
     $row = $result->fetch_assoc();
 
-    // Verify the hashed password
+
     if ($row && password_verify($password, $row['password'])) {
       return true;
     } else {
@@ -37,11 +29,6 @@ class UserModel
     $query->close();
   }
 
-
-   /**
-
-   * Checks if a user with the given username exists.
-   */
   public function checkUserExist($username)
   {
     $query = $this->db->getConnection()->prepare("SELECT password FROM username WHERE username = ?");
@@ -49,8 +36,6 @@ class UserModel
     $query->execute();
     // Fetch the result of the query.
     $result = $query->get_result();
-
-    // Check if any rows are returned
     if ($result->num_rows > 0) {
       //user already exist
       return true;
@@ -59,9 +44,6 @@ class UserModel
     }
   }
 
-  /**
-   * Registers a new user with the given username and password.
-   */
   public function registerUser($username, $password)
   {
     $password = password_hash($password, PASSWORD_DEFAULT);
@@ -71,9 +53,7 @@ class UserModel
     $query->close();
   }
 
-  /**
-   * Retrieves all song ratings from the database.
-   */
+  // Method to get the ratings from database
   public function getAllRatings()
   {
     $query = $this->db->getConnection()->prepare("SELECT * FROM ratings");
@@ -90,9 +70,6 @@ class UserModel
     return $rows;
   }
 
-  /**
-   * Retrieves information about a specific song.
-   */
   public function getSongInfo($song_id)
   {
     $query = $this->db->getConnection()->prepare("SELECT * FROM ratings WHERE id = ?");
@@ -109,9 +86,8 @@ class UserModel
     $query->close();
   }
 
-  /**
-   * Updates song information.
-   */
+
+
   public function updateInfo($song_id, $artist, $song_name, $song_rating)
   {
     $query = $this->db->getConnection()->prepare("UPDATE ratings SET artist = ?, song = ?, rating = ? WHERE id = ?");
@@ -120,9 +96,6 @@ class UserModel
     $query->close();
   }
 
-  /**
-   * Validates if a song belongs to the user.
-   */
   public function checkValid($song_id, $user_name)
   {
     $query = $this->db->getConnection()->prepare("SELECT * FROM ratings WHERE id = ? AND username = ?");
@@ -138,9 +111,6 @@ class UserModel
     $query->close();
   }
 
-  /**
-   * Deletes a song from the database.
-   */
   public function deleteSong($song_id)
   {
     $query = $this->db->getConnection()->prepare("DELETE FROM ratings WHERE id = ?");
@@ -149,9 +119,6 @@ class UserModel
     $query->close();
   }
 
-  /**
-   * Checks if a song already exists for the user.
-   */
   public function checkDuplicate($song_name, $user_name, $song_artist)
   {
     $query = $this->db->getConnection()->prepare("SELECT * FROM ratings WHERE song = ? AND username = ? AND artist = ?");
@@ -167,12 +134,9 @@ class UserModel
     $query->close();
   }
 
-  /**
-   * Creates a new song entry in the database.
-   */
   public function createSong($song_name, $user_name, $song_artist, $song_rating)
   {
-    $query = $this->db->getConnection()->prepare("INSERT INTO ratings (`username`, `artist`, `song`, `rating`) VALUES (?, ?, ?, ?)");
+    $query = $this->db->getConnection()->prepare("INSERT INTO ratings (`username`, `artist`, `song`, `rating`) VALUES (?, ?, ?, ?, ?)");
     $query->bind_param('sssi', $user_name, $song_artist, $song_name, $song_rating);
     $query->execute();
     $query->close();
