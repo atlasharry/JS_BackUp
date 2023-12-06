@@ -27,7 +27,7 @@ class UserController extends BaseController
 
     $db->closeConnection();
   }
-  
+
   public function register()
   {
     $input = file_get_contents('php://input');
@@ -125,7 +125,6 @@ class UserController extends BaseController
   {
     $input = file_get_contents('php://input');
     $data = json_decode($input, true);
-    $song_id = $data["id"];
     $user_name = $data["username"];
     $song_artist = $data['song_artist'];
     $song_name = $data['song_name'];
@@ -135,7 +134,7 @@ class UserController extends BaseController
     $userModel = new UserModel($db);
 
     if ($userModel->checkDuplicate($song_name, $user_name, $song_artist)) {
-      $userModel->createSong($id, $song_name, $user_name, $song_artist, $song_rating);
+      $userModel->createSong($song_name, $user_name, $song_artist, $song_rating);
       $this->jsonResponse(['success' => true], 201);
     } else {
       $this->jsonResponse(['success' => false, 'message' => 'song already exist'], 401);

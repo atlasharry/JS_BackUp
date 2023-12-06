@@ -134,10 +134,10 @@ class UserModel
     $query->close();
   }
 
-  public function createSong($song_id, $song_name, $user_name, $song_artist, $song_rating)
+  public function createSong($song_name, $user_name, $song_artist, $song_rating)
   {
-    $query = $this->db->getConnection()->prepare("INSERT INTO ratings (`id`, `username`, `artist`, `song`, `rating`) VALUES (?, ?, ?, ?, ?)");
-    $query->bind_param('isssi', $song_id, $user_name, $song_artist, $song_name, $song_rating);
+    $query = $this->db->getConnection()->prepare("INSERT INTO ratings (`username`, `artist`, `song`, `rating`) VALUES (?, ?, ?, ?, ?)");
+    $query->bind_param('sssi', $user_name, $song_artist, $song_name, $song_rating);
     $query->execute();
     $query->close();
   }
