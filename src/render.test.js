@@ -180,7 +180,7 @@ describe("Songdisplay Render Test", () => {
     });
 
     expect(screen.getByText("artist1")).toBeInTheDocument();
-    expect(screen.getByText("artist3")).toBeInTheDocument();
+    expect(screen.getByText("artist2")).toBeInTheDocument();
     expect(screen.getByText("song1")).toBeInTheDocument();
     expect(screen.getByText("song2")).toBeInTheDocument();
   });
