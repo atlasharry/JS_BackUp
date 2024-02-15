@@ -4,8 +4,7 @@
 
 **We use this repo to build up the testing codes for both the frontend and backend.**
 
-In addition to the back up, we also have codes related to Unit Testing and Continuous Integration(Python pytest, Jest, PHPUnit, GitHub Actions, Generative AI) for COMP 333: Software Engineering 2023
-Homework 5
+In addition to the back up, we also have codes related to Unit Testing and Continuous Integration(Python pytest, Jest, PHPUnit, GitHub Actions, Generative AI) 
 
 ## Where to put the repo
 
@@ -135,6 +134,6 @@ beforeEach(() => {
 We then used this code to test our search function.
 
 ## Member Contribution
-
+This repo includes Unit Testing and Continuous Integration(Python pytest, Jest, PHPUnit, GitHub Actions, Generative AI) for COMP 333: Software Engineering 2023
 Harry Yu 50%
 Patton Yin 50%
